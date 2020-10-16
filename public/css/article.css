@@ -1,0 +1,43 @@
+section h1 {
+  color: #5f5f5f;
+}
+
+h2 {
+  color: #4f4f4f;
+  font-size: 1.1em;
+}
+
+p {
+  font-size: 1em;
+}
+
+.info {
+  font-size: 0.8em;
+}
+
+section {
+  padding: 1em;
+}
+
+[data-fen],
+[data-ply],
+.hover-ply {
+  width: 60vmin;
+  height: 0;
+  padding-bottom: 60vmin;
+}
+
+img {
+  width: 60vmin;
+  margin-left: 1em;
+}
+
+[data-fen],
+[data-ply] {
+  position: relative;
+  margin-left: 1em;
+}
+
+#chessmd {
+  margin-bottom: 1em;
+}

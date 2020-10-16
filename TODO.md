@@ -1,0 +1,2 @@
+- [ ] Responsive Home
+  - [ ] Two side articles on wide

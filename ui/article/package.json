@@ -1,0 +1,14 @@
+{
+  "name": "article",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack --watch --env=development",
+    "dist": "webpack --env=production"
+  },
+  "devDependencies": {
+    "webpack": "^5.1.3",
+    "webpack-cli": "^4.0.0"
+  }
+}
