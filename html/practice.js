@@ -35,7 +35,7 @@ bits.section = exercisesWithMeta => {
 
     return tags.li([
       tags.div({ cls: 'shead' }, [
-        tags.h3(tags.a({ href: `/section/${section.id}` }, `${section.name}`)),
+        tags.h3(tags.a({ href: `/section/${section.id}`, name: section.id }, `${section.name}`)),
         tags.span({}, [`${meta.done}/${meta.total}`]),
       ]),
       tags.ul(
@@ -51,7 +51,7 @@ bits.exercise = (exerciseWithMeta) => {
   let markKlass = meta.done ? 'done' : '';
 
   return tags.li({ cls: 'exercise' }, [
-    tags.a({ target: '_blank', href: `/challenge/${exercise.id}` }, [exercise.fen]),
+    tags.a({ target: '_blank', href: `/challenge/${exercise.id}` }, [`${exercise.fen} 🔗`]),
     tags.span({ cls: 'mark ' + markKlass }, '✓')
   ]);
 };

@@ -521,9 +521,9 @@ chalk@^2.4.2:
     supports-color "^5.3.0"
 
 chessm@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/chessm/-/chessm-1.0.1.tgz#d3212c9c4b8bd44036ebfc41b54773128908b625"
-  integrity sha512-hPfU4eWv5JXhR2Kp7oxrAPRCiOerUtaZUOP/m9HV50L/SjfPVyAgo2Fg3+55tT1dPj5Y9hGnJLW0uk6LqK1now==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/chessm/-/chessm-1.1.0.tgz#c29c28d257e34781212840bbe3050773a7a8b7f7"
+  integrity sha512-VOeSy+7VN6iAXhO6zKKBdWBG3PeZTBqiGaP02JndlRRNsLrAXmqv1W7asROg5TIJSop19vPSgFmC1HojWch6Cw==
 
 chokidar@^2.1.8:
   version "2.1.8"

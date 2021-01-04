@@ -10,7 +10,7 @@ const opposite = c => c === 'white' ? 'black' : 'white';
 const listenStreaming = ({
   url,
   headers,
-  timeoutDelay = 30 * 60 * 1000
+  timeoutDelay = 15 * 60 * 1000
 }, onData) => {
   let controller = new AbortController();
   const timeout = setTimeout(() => {
@@ -30,7 +30,10 @@ const listenStreaming = ({
           reject();
         });
     });
-  }).finally(() => clearTimeout(timeout));
+  }).finally(() => {
+    clearTimeout(timeout);
+    controller.abort();
+  });
 };
 
 
@@ -52,25 +55,22 @@ function LiApi() {
 
     const listenGame = gameid => {
       let url = `https://lichess.org/api/board/game/stream/${gameid}`;
-
-      return listenStreaming({ url, 
-                               headers }, async (data, resolve, controller) => {
+      
+      return listenStreaming
+      ({ url, 
+         headers }, async (data, resolve, controller) => {
         if (data.type === 'gameFull') {
           if (data[aiColor].aiLevel !== 8 ||
              data.initialFen !== fen) {
             resolve(false);
-            controller.abort();
           }
         } else if (data.type === 'gameState') {
           if (data.status === 'resign' || data.status === 'aborted') {
             resolve(false);
-            controller.abort();
           } else if (data.status === 'draw') {
             resolve(draw);
-            controller.abort(); 
           } else if (data.status === 'mate') {
             resolve(data.winner === playerColor);
-            controller.abort();
           }
         }
       });
@@ -80,20 +80,23 @@ function LiApi() {
 
 
     listenStreaming({ url, 
-                      headers },  async (data, resolve, controller) => {
+                      headers },  async (data, resolve) => {
       if (data.type === 'gameStart') {
-        console.log(data);
         let found = await listenGame(data.game.id);
 
         if (found) {
           onFound();
-          controller.abort();
+          resolve();
         }
       };
     });
   };
 
-  this.aiFen = async (token, fen) => {
+  this.aiFen = async (token, exercise) => {
+
+    let { fen, short } = exercise;
+
+    let limit = 60 * 10;
 
     let headers = {
       ..._headers(token),
@@ -106,7 +109,7 @@ function LiApi() {
       body: JSON.stringify({
         level: 8,
         clock: {
-          limit: 60 * 10,
+          limit,
           increment: 0
         },
         color: fenToMove(fen),

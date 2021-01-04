@@ -9,6 +9,8 @@ const book = mName('book');
 const progress = mName('progress');
 const envName = mName('env');
 
+const opening = mName('opening');
+
 const mInit = (m, coll) => m(store(coll));
 
 module.exports = {
@@ -17,5 +19,6 @@ module.exports = {
   bookm: mInit(require('./bookm'), book),
   progressm: mInit(require('./progressm'), progress),
   envm: mInit(require('./envm'), envName),
+  openingm: mInit(require('./openingm'), opening),
   terminate: store.terminate
 };

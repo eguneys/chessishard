@@ -1741,9 +1741,9 @@ chalk@^3.0.0:
     supports-color "^7.1.0"
 
 chessm@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/chessm/-/chessm-1.0.1.tgz#d3212c9c4b8bd44036ebfc41b54773128908b625"
-  integrity sha512-hPfU4eWv5JXhR2Kp7oxrAPRCiOerUtaZUOP/m9HV50L/SjfPVyAgo2Fg3+55tT1dPj5Y9hGnJLW0uk6LqK1now==
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/chessm/-/chessm-1.0.2.tgz#6f85191d2e7acd75074fbc6816e282c419d58ae7"
+  integrity sha512-1Nou0yz3e7jboZyg7EPumGEc6CEWaZZUiyzMATdwPPa/O1pWAtSfu6pn+vBqCxmykaOC5I9mcQWm+nXVzU8q3g==
 
 chessmd@^1.3.0:
   version "1.4.1"
@@ -1797,9 +1797,9 @@ ci-info@^2.0.0:
   integrity sha512-5tK7EtrZ0N+OLFMthtqOj4fI2Jeb88C4CAZPu25LDVUgXJ0A3Js4PMGqrn0JU1W0Mh1/Z8wZzYPxqUrXeBboCQ==
 
 ciseditor@^2.0.0:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/ciseditor/-/ciseditor-2.0.1.tgz#1e5d8f9ba9c1bdf7c9bc956aa15e3badbd776777"
-  integrity sha512-04cuTcHKIMDrFwUgz6591POGv13QwxIfatdTeOuzRbxB52PIokPXucfTwYbbXterx9AoHTVvs+NFDyxpRNoyZg==
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/ciseditor/-/ciseditor-2.0.2.tgz#46d275b77d9198ef4bc6319b6501b03dae19bca2"
+  integrity sha512-RS+2VZYs8f0/kscoGrDxOP1B17zq6S4s7CrxcHbko3Ij2BdT4HA8OrciINat6XTDxIJ01uuLM6uJwCnPsogXzQ==
   dependencies:
     chessm "^1.0.0"
 

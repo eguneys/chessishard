@@ -14,6 +14,8 @@ app.use('/assets', express.static(path.join(__dirname, 'public')));
 
 app.use(cookieParser());
 
+app.use(express.urlencoded({ extended: false }));
+
 let Env = require('./env');
 let env = new Env(app);
 

@@ -22,6 +22,7 @@ fixtures.sections = [
   { id: '1-6', chapterId: '1', name: `The Rule of the Square` },
   { id: '1-7', chapterId: '1', name: `Reti's Idea` },
   { id: '1-8', chapterId: '1', name: `The Floating Square` },
+  { id: '1-8-1', chapterId: '1', name: `Three Connected Pawns` },
   { id: '1-9', chapterId: '1', name: `Queen vs Pawns` },
   { id: '1-10', chapterId: '1', name: `Pawn Races` },
   { id: '1-11', chapterId: '1', name: `The Active King - Widening The Beachhead` },
@@ -70,14 +71,14 @@ fixtures.sections = [
 ];
 
 fixtures.exercises = [
-  { id: '1-1', sectionId: '1-2', fen: '8/8/1p6/1p6/k7/2P5/PK6/8 b - - 0 1' },
+  { id: '1-1', sectionId: '1-2', draw: true, fen: '8/8/1p6/1p6/k7/2P5/PK6/8 b - - 0 1' },
   { id: '1-2', sectionId: '1-2', fen: '8/8/8/1p4k1/1P3p2/5K2/6P1/8 w - - 0 1' },
-  { id: '1-3', sectionId: '1-2', fen: '3b4/p6k/8/2R5/8/5P2/1r3N1K/8 w - - 0 1' },
+  { id: '1-3', sectionId: '1-2', draw: true, fen: '3b4/p6k/8/2R5/8/5P2/1r3N1K/8 w - - 0 1' },
   { id: '1-4', sectionId: '1-2', fen: 'k7/2p5/8/KP3p2/8/8/6P1/8 w - - 0 1' },
   { id: '1-5', sectionId: '1-2', fen: 'k7/8/8/8/8/8/8/K1R5 w - - 0 1', 
     info: 'Mate Black with just one [mating] move by the rook' },
 
-  { id: '1-6', sectionId: '1-3', fen: '3r4/3P4/p1k5/1p3pp1/1P5p/P4P1P/3R1KP1/8 b - - 0 1' },
+  { id: '1-6', sectionId: '1-3', draw: true, fen: '3r4/3P4/p1k5/1p3pp1/1P5p/P4P1P/3R1KP1/8 b - - 0 1' },
   { id: '1-7', sectionId: '1-3', fen: '8/4pk2/p5p1/7p/R6P/4P3/P5r1/5K2 b - - 0 1' },
 
   { id: '1-8', sectionId: '1-4', fen: '8/8/8/1p6/1P6/3P1k2/3K4/8 w - - 0 1' },
@@ -91,24 +92,24 @@ fixtures.exercises = [
 
   { id: '1-13', sectionId: '1-7', draw: true, fen: '1n6/7K/1P3k2/2pP1P2/7P/8/8/8 w - - 0 1' },
   { id: '1-14', sectionId: '1-7', draw: true, fen: '8/2p4K/8/7k/8/8/6PP/8 w - - 0 1' },
-  { id: '1-15', sectionId: '1-7', draw: true, fen: '8/2p5/8/8/5P1k/p7/7P/2K5 w - - 0 1' },
+  { id: '1-15', sectionId: '1-7', fen: '8/2p5/8/8/5P1k/p7/7P/2K5 w - - 0 1' },
 
   { id: '1-16', sectionId: '1-8', fen: '8/p4k2/2p3p1/3q3p/3pQP1P/3P4/1KP5/8 b - - 0 1' },
-  { id: '1-17', sectionId: '1-8', fen: '1k6/2p5/3p4/PPPP4/6p1/5pP1/5K2/8 b - - 0 1' },
+  { id: '1-17', sectionId: '1-8', draw: true, fen: '1k6/2p5/3p4/PPPP4/6p1/5pP1/5K2/8 b - - 0 1' },
   { id: '1-18', sectionId: '1-8', fen: '8/8/8/8/3k3p/1P3PpP/4K3/8 w - - 0 1' },
 
-  { id: '1-19', sectionId: '1-9', fen: '8/KB6/P7/4k3/8/7p/6p1/8 w - - 0 1' },
-  { id: '1-20', sectionId: '1-9', fen: '8/8/p3K3/Pp6/1P3k1p/5P2/6P1/8 w - - 0 1' },
+  { id: '1-19', sectionId: '1-9', short: true, draw: true, fen: '8/KB6/P7/4k3/8/7p/6p1/8 w - - 0 1' },
+  { id: '1-20', sectionId: '1-9', draw: true, fen: '8/8/p3K3/Pp6/1P3k1p/5P2/6P1/8 w - - 0 1' },
   { id: '1-21', sectionId: '1-9', draw: true, fen: '8/2R5/3KP3/8/2p1p1p1/3r4/8/6k1 w - - 0 1' },
-  { id: '1-22', sectionId: '1-9', fen: '8/p7/5p2/2k2P2/8/2K5/P7/8 w - - 0 1' },
+  { id: '1-22', sectionId: '1-9', draw: true, fen: '8/p7/5p2/2k2P2/8/2K5/P7/8 w - - 0 1' },
 
 
   { id: '1-23', sectionId: '1-10', fen: '8/8/p7/k7/6K1/5n1P/8/8 b - - 0 1' },
   { id: '1-24', sectionId: '1-10', fen: '8/8/8/3p4/1k3PpP/8/3K4/8 w - - 0 1' },
   { id: '1-25', sectionId: '1-10', draw: true, fen: '8/8/2Kp4/4p3/8/8/2P2k2/8 w - - 0 1' },
   { id: '1-26', sectionId: '1-10', fen: '7k/8/8/5KPP/1pp5/8/8/8 w - - 0 1' },
-  { id: '1-27', sectionId: '1-10', draw: true, fen: '8/4K1pp/8/8/8/8/k6P/8 w - - 0 1' },
-  { id: '1-28', sectionId: '1-10', draw: true, fen: '8/2p5/6K1/8/8/5k2/P7/8 w - - 0 1' },
+  { id: '1-27', sectionId: '1-10', fen: '8/4K1pp/8/8/8/8/k6P/8 w - - 0 1' },
+  { id: '1-28', sectionId: '1-10', fen: '8/2p5/6K1/8/8/5k2/P7/8 w - - 0 1' },
 
   { id: '1-29', sectionId: '1-11', fen: '8/1p2k2p/8/P4K2/8/7P/8/8 w - - 0 1' },
   { id: '1-30', sectionId: '1-11', fen: '8/8/p7/P3kpp1/2p5/2P1PPK1/5P2/8 w - - 0 1' },

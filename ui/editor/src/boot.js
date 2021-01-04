@@ -10,6 +10,26 @@ export default function(opts) {
   opts.$_ = $_;
   editor = window['ChessIsEditor'].app(opts);
 
+  let $save = document.getElementById('save');
+
+  if ($save) {
+    $save.addEventListener('click', e => {
+      e.preventDefault();
+
+      json($save.href, {
+        method: 'post',
+        body: form({content: editor.content() })
+      }).then(_ => {
+        if (_.error) {
+          console.log(_.error);
+        } else {
+          cishard.redirect(_.redirect);
+        }
+      });
+
+    });
+  }
+
   // let $review = document.getElementById('review');
 
   // $review.addEventListener('click', e => {

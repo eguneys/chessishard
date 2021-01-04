@@ -110,12 +110,153 @@ White used triangulation, it's the same position with black to move.
 
 When the pawn structure changes, the system of key squares and corresponding squares changes.
 ` },
-  { id: '1-5', sectionId: '1-5', name: `Other Cases of Correspondence` },
-  { id: '1-6', sectionId: '1-6', name: `The Rule of the Square` },
-  { id: '1-7', sectionId: '1-7', name: `Reti's Idea` },
-  { id: '1-8', sectionId: '1-8', name: `The Floating Square` },
-  { id: '1-9', sectionId: '1-9', name: `Queen vs Pawns` },
-  { id: '1-10', sectionId: '1-10', name: `Pawn Races` },
+  { id: '1-5', sectionId: '1-5', name: `Other Cases of Correspondence`, content: `
+N. Grigoriev, 1922
+
+<grigoriev 8/8/3pPk2/3P1p2/5K2/8/8/8 w - - 0 1>
+
+White to play
+=grigoriev 0
+
+f4 and f6 are in correspondence. So is h4 and g6, (not h4 and f6 because of Kh5). We can determine a third pair of correspondence g3 - g7.
+
+f3 adjoins both f4 and g3 thus f3 and g6 is also correspondence.
+From h3 the king can go to g3 and h4, thus, h3 and f6 are in correspondence.
+
+From g2 square, king can go to f3 g3 or h3, the only equivalent square for black is f7, but he can't go there.
+
+Thus, white should go to g2 and depending on black king position go to the corresponding square.
+
+<grigoriev 1. Kf3 Kg6 2. Kg2 Kf6> ( <grigoriev2 grigoriev 2... Kg7 3. Kg3> )
+
+<grigoriev 3. Kh3 Kg7 4. Kg3 Kf6> ( <grigoriev3 grigoriev 4... Kg6 5. Kh4 Kf6 6. Kh5> ) <grigoriev 5. Kf4 Kg6 6. e7 Kf7 7. Kxf5 Kxe7 8. Kg6> +- .
+` },
+  { id: '1-6', sectionId: '1-6', name: `The Rule of the Square`,
+    content: `
+If the king stands within the square of the passed pawn, or can reach it on its move, the pawn can be stopped, otherwise it will queen.
+
+Sometimes, even though king is within the square, it still can't stop the passed pawn, because it's own pawns get in the way.
+
+R. Bianchetti, 1925
+
+<rbianchetti 8/5p2/4p3/8/3P4/5k2/P7/5K2 w - - 0 1>
+
+White to play
+
+=rbianchetti 0
+
+<rbianchetti 1. d5 exd5 2. a4 Ke4 3. a5> +- black cannot play Kd5.
+`},
+  { id: '1-7', sectionId: '1-7', name: `Reti's Idea`, content: `
+Sometimes king outside the square of the passed pawn can still catch it. The missing tempo is won by creating accompanying threats, often involving support of one's own passed pawn.
+
+R. Réti, 1921
+
+<reti 7K/8/k1P5/7p/8/8/8/8 w - - 0 1>
+
+White to play
+=reti 0
+
+Black's king is within the square of c6 pawn. White is two tempi short of catching the h5 pawn. Though white can still catch the pawn.
+
+<reti 1. Kg7 h4 2. Kf6 Kb6>
+
+( <reti2 reti 2... h3 3. Ke7> and the pawns queen together)
+
+<reti 3. Ke5 Kxc6 4. Kf4> = 
+` },
+  { id: '1-8', sectionId: '1-8', name: `The Floating Square`, content: `
+If a square whose two corners are occupied by pawns (on the same rank) reaches the edge of the board, then one of those pawns must queen.
+
+If the square doesn't reach the edge of the board, then king can hold the pawns. 
+
+If there are two files between the pawns, the king can capture them both.
+
+If the distance is greater, he can only prevent their further advance.
+
+Khalifman - Belikov 
+
+Podolsk 1992
+
+White to move
+
+<khalifman 8/2p3p1/2p2kP1/4pP1P/4K3/2P5/8/8 w - - 0 1>
+
+=khalifman 0
+
+<khalifman 1. h6 gxh6 2. Kf3 h5 3. Kg3 c5>
+
+The black's passed pawns are to be lost. King can't protect them: 
+ <khalifman2 khalifman 3... Kg7 4. c4 c5 5. Kh3 Kh6 6. Kh4 c6 7. Kh3 Kg7 8. Kg3> (triangulation) <khalifman2 8... Kh6 9. Kh4> ⊙ <khalifman2 9... e4 10. Kg3 Kg7 11. Kf4> +-
+
+<khalifman 4. Kh4 e4 5. Kg3> Black resigned.
+` },
+  { id: '1-8-1', sectionId: '1-8-1', name: `Three Connected Pawns`, content: `
+` },
+  { id: '1-9', sectionId: '1-9', name: `Queen vs Pawns`, content: `
+# Knight or Center Pawn
+
+The queen wins against either a center or a knight pawn.
+
+<kcpawn 2KQ4/8/8/8/8/8/2kp4/8 w - - 0 1>
+
+=kcpawn 0
+
+The queen uses either checks or attacks on the pawn to get closes to the enemy king, and drive it onto the d1 square. This gives white tempo to bring his king closer to the pawn.
+
+# Rook or Bishop's Pawn
+
+With a rook or bishop's pawn the above method doesn't work. A stalemate defense appears.
+
+<rbpawn 8/8/8/3K4/Q7/8/1kp5/8 w - - 0 1>
+
+=rbpawn 0
+
+<rbpawn 1. Qb4+ Ka2 2. Qc3 Kb1 3. Qb3+ Ka1 4. Qe3 Kb1 5. Qd3 Kb2 6. Qe2 Ka1> = (but not <rbpawn2 rbpawn 6... Kb1 7. Kc4 c1=Q+ 8. Kb3> +-)
+`},
+  { id: '1-10', sectionId: '1-10', name: `Pawn Races`, content: `
+There is a situation where both pawns advance simultaneously and queen at the same time or almost. The following outcomes are possible:
+
+1) One rook's pawn prevents the other rook's pawn from queening. (diagonally)
+
+2) The pawn queens with check, and thereby prevents the enemy pawn from queening; or
+
+3) We get a "queen vs. pawn(s) endgame.
+
+Or, if both pawns queen, then:
+
+4) One queen is lost to a "skewer" check.
+
+5) Mate follows.
+
+6) The queens are exchanged, we get a pawn ending.
+
+7) We get a queen ending.
+
+# G. Walker, 1841
+
+White to move
+
+<gwalker 8/5p1p/8/K6k/8/8/PP6/8 w - - 0 1>
+
+=gwalker 0
+
+<gwalker 1. b4 f5 2. b5 f4 3. b6 f3 4. b7 f2 5. b8=Q f1=Q 6. Qb5+ Qxb5 7. Kxb5 Kg4 8. a4> and the h pawn can't queen. This shows points 1 and 6.
+
+# J.Moravec, 1925
+
+White to move
+
+<jmoravec 8/8/4K3/8/8/5p1k/5P1P/8 w - - 0 1> 
+
+=jmoravec 0
+
+The only move to draw is <jmoravec 1. Kd5 Kg2 2. h4>
+
+( <jmoravec2 jmoravec 1... Kxh2 2. Ke4 Kg2 Ke3> ⊙ +-).
+
+On <jmoravec3 jmoravec 1. Kf5> the black pawn queens with check; while on <jmoravec4 jmoravec 1. Ke5> White's queen will be lost after Qa1+
+` },
   { id: '1-11', sectionId: '1-11', name: `The Active King - Widening The Beachhead` },
   { id: '1-12', sectionId: '1-12', name: `The King Routes - Zigzag` },
   { id: '1-13', sectionId: '1-13', name: `The King Routes - Pendulum` },

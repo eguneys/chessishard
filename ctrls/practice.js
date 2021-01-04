@@ -21,7 +21,7 @@ function Practice(env) {
                          exercise.id);
       };
 
-      let game = await liapi.aiFen(ctx.user.token, exercise.fen);
+      let game = await liapi.aiFen(ctx.user.token, exercise);
 
       liapi.listenFen(ctx.user.token, exercise, onProgress);
 

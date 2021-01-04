@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --env=development",
+    "dev": "webpack --watch --env=development",
     "prod": "webpack --env=production"
   },
   "license": "MIT",

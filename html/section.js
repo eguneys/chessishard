@@ -11,10 +11,10 @@ module.exports = (section, explanation) => ctx => {
 
   return layout('Free Chess Articles', [
     tags.div({ cls: ['home'] }, [
-      tags.a({ href: '/practice' }, '- Back to Practice'),
-      tags.h2(section.name),
+      tags.a({ href: `/practice#${section.id}` }, '- Back to Practice'),
+      tags.h1(section.name),
       tags.div({id: 'md' }),
-      tags.a({ href: '/practice' }, '- Back to Practice'),
+      tags.a({ href: `/practice#${section.id}` }, '- Back to Practice'),
     ])  
   ], {
     moreJs: tags.frag([
