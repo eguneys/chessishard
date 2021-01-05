@@ -25,5 +25,5 @@ function OpeningM(coll) {
   coll.one(sectionId);
 
   this.sectionsLight = () =>
-  coll.query(_ => _.select('name'));
+  coll.query(_ => _.select('name', 'handle'));
 }

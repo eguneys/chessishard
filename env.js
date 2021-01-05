@@ -31,6 +31,10 @@ module.exports = function(app) {
       secret: client_secret
     };
 
+    let { token } = await envm.envByKey("lichess-oauth2");
+
+    this.oauth2Token = token;
+
     let { secret } = await envm.envByKey("cookie-secret");
 
     this.cookieSecret = secret;

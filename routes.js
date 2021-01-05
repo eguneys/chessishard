@@ -24,12 +24,12 @@ module.exports = function makeRouter(env) {
 
   router.get('/challenge/:exerciseId', practice.challenge);
 
-  router.get('/opening', opening.index);
-  router.post('/opening/section', opening.newSection);
+  router.get('/openings', opening.index);
+  router.post('/openings/section', opening.newSection);
 
-  router.get('/opening/:sectionId', opening.section);
-  router.get('/opening/:sectionId/editor', opening.sectionEdit);
-  router.post('/opening/:sectionId', upload.none(), opening.sectionEditPost);
+  router.get('/openings/:sectionId', opening.section);
+  router.get('/openings/:sectionId/editor', opening.sectionEdit);
+  router.post('/openings/:sectionId', upload.none(), opening.sectionEditPost);
 
   return router;
 };

@@ -1,41 +1,10 @@
-const ndjson = require('ndjson');
-const AbortController = require('abort-controller');
 const fetch = require('node-fetch');
+const listenStreaming = require('./streamingapi');
 
 const fenToMove = fen =>
       fen.includes('w') ? 'white' : 'black';
 
 const opposite = c => c === 'white' ? 'black' : 'white';
-
-const listenStreaming = ({
-  url,
-  headers,
-  timeoutDelay = 15 * 60 * 1000
-}, onData) => {
-  let controller = new AbortController();
-  const timeout = setTimeout(() => {
-    controller.abort();
-  }, timeoutDelay);
-
-  return fetch(url, {
-    headers,
-    signal: controller.signal
-  }).then(res => {
-    return new Promise((resolve, reject) => {
-      res.body.pipe(ndjson.parse())
-        .on('data', async (obj) => {
-          onData(obj, resolve, controller);
-        })
-        .on('error', () => {
-          reject();
-        });
-    });
-  }).finally(() => {
-    clearTimeout(timeout);
-    controller.abort();
-  });
-};
-
 
 function LiApi() {
 

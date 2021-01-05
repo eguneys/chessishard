@@ -29,6 +29,7 @@ cssAt(`css/${name}.${e.env.minifiedAssets?'min':'dev'}.css`);
 helper.jsModule = jsModule;
 helper.editorTag = () => jsModule('editor');
 helper.sectionTag = () => jsModule('section');
+helper.openingsTag = () => jsModule('openings');
 helper.chessmdTag = () => jsAt('javascripts/vendor/bundle.js');
 
 helper.embedJsUnsafe = (js) => {
