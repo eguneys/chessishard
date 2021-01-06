@@ -1,5 +1,7 @@
 let html = require('../html');
 
+let openingsApi = require('../modules/openings');
+
 let { openingm } = require('../model');
 
 function Opening(env) {
@@ -49,19 +51,22 @@ function Opening(env) {
     openingm
       .update(sectionId, { content })
       .then(_ => {
-        res.send({ ok: true, redirect: `/opening/${sectionId}` });
+        res.send({ ok: true, redirect: `/openings/${sectionId}` });
       });
     
   };
 
   this.newSection = async (req, res, next) => {
 
-    let sname = req.body.name;
+    let err = openingsApi.validate(req.body);
 
-    openingm.insertSection(sname)
-      .then(_ => {
-        res.send(_);
-      });
+    if (err) {
+      res.send({ error: err });
+    } else {
+      let { name, handle } = req.body;
+      let _ = await openingm.insertSection(name, handle);
+      res.send(_);
+    }
 
   };
 

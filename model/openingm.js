@@ -7,16 +7,15 @@ module.exports = (coll) => {
 
 function OpeningM(coll) {
 
-  let newSection = (name) => ({
+  let newSection = (name, handle) => ({
     id: nextString(8),
     name,
-    body: ''
+    handle
   });
 
-  this.insertSection = (chapterId, name) =>
+  this.insertSection = (name, handle) =>
   coll.insert(
-    newSection(chapterId,
-               name));
+    newSection(name, handle));
 
   this.update = (sectionId, f) =>
   coll.update(sectionId, f);

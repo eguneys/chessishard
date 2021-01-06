@@ -2,5 +2,6 @@
 
 URL=$1
 NAME=$2
+HANDLE=$3
 
-curl ${URL}/opening/section -d "name=${NAME}"
+curl ${URL}/openings/section -d "name=${NAME}&handle=${HANDLE}"
