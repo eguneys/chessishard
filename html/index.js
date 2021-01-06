@@ -3,5 +3,5 @@ module.exports = {
   practice: require('./practice'),
   section: require('./section'),
   editor: require('./editor'),
-  opening: require('./opening')
+  openings: require('./openings')
 };

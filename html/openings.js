@@ -24,7 +24,7 @@ bits.section = (section) => tags.li([
   tags.a({ href: '#', cls: 'handle', 'data-handle': section.handle }, section.handle)
 ]);
 
-module.exports.list = (sections) => layout('Opening Repertoire', [
+module.exports.list = (sections) => ctx => layout('Opening Repertoire', [
   bits.info(),
   tags.ul({ cls: 'openings list' }, 
           sections.map(bits.section))
@@ -33,35 +33,39 @@ module.exports.list = (sections) => layout('Opening Repertoire', [
       helper.openingsTag(),
       helper.embedJsUnsafeLoadThen(`
 ChessIsOpenings.boot(${helper.safeJsonValue({
-})})`)
+})})`)(ctx)
     ])
-});
+}, ctx);
 
 
-module.exports.show = (section) => {
+module.exports.show = (section) => ctx => {
 
   let data = section.content;
 
-  return layout(section.name, tags.section([
-    tags.h1([section.name,
-             tags.span(' Challenge #'),
-             tags.a({ href: '#', cls: 'handle', 'data-handle': section.handle }, section.handle),
-            ]),
-    tags.div({ id: 'md' })
+  return layout(section.name, tags.frag([
+    tags.a({ href: `/openings#${section.id}` }, '- Back to Opening List'),
+    tags.section([
+      tags.h1([section.name,
+               tags.span(' Challenge #'),
+               tags.a({ href: '#', cls: 'handle', 'data-handle': section.handle }, section.handle),
+              ]),
+      tags.div({ id: 'md' })
+    ]),
+    tags.a({ href: `/openings#${section.id}` }, '- Back to Opening List'),
   ]), {
     moreJs: tags.frag([
       helper.sectionTag(),
       helper.embedJsUnsafeLoadThen(`
 ChessIsSection.boot(${helper.safeJsonValue({
 data
-})})`)
+})})`)(ctx)
     ]),
     chessmd: true,
     moreCss: helper.cssTag('section'),
-  });
+  }, ctx);
 };
 
-module.exports.editor = (section) => {
+module.exports.editor = (section) => ctx => {
 
   let data = section.content;
 
@@ -81,11 +85,11 @@ module.exports.editor = (section) => {
       helper.embedJsUnsafeLoadThen(`
 ChessIsEditor.boot(${helper.safeJsonValue({
 data
-})})`)
+})})`)(ctx)
     ]),
     moreCss: tags.frag([
       helper.cssTag('editor'),
       helper.cssTag('editor_main')
     ])
-  });
+  }, ctx);
 };

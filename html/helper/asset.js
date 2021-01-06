@@ -1,6 +1,9 @@
 let e = require('./env');
 let tags = require('../tags');
 
+let ContentSecurityPolicy = require('../../modules/csp');
+
+let assetDomain = () => e.env.assetDomain;
 let assetBaseUrl = () => e.env.assetBaseUrl;
 
 function assetUrl(path) {
@@ -23,6 +26,26 @@ let helper = {
   assetUrl
 };
 
+helper.defaultCsp = (ctx) => {
+  let csp = basicCsp();
+  return csp.withNonce(ctx.nonce);
+};
+
+function basicCsp() {
+  let { env } = e;
+
+  let assets = `${assetDomain()}`;
+
+  return new ContentSecurityPolicy({
+    defaultSrc: ["'self'", assets],
+    styleSrc: ["'self'", `'unsafe-inline'`, assets],
+    fontSrc: ["'self'", assetDomain(), 'https://fonts.gstatic.com'],
+    imgSrc: ['data:', '*'],
+    scriptSrc: ["'self'", assets],
+    baseUri: ["'none'"]
+  });
+};
+
 helper.cssTag = name => 
 cssAt(`css/${name}.${e.env.minifiedAssets?'min':'dev'}.css`);
 
@@ -32,12 +55,15 @@ helper.sectionTag = () => jsModule('section');
 helper.openingsTag = () => jsModule('openings');
 helper.chessmdTag = () => jsAt('javascripts/vendor/bundle.js');
 
-helper.embedJsUnsafe = (js) => {
-  return `<script>${js}</script>`;
+helper.embedJsUnsafe = (js) => ctx => {
+
+  let nonce = ctx.nonce ? ` nonce="${ctx.nonce}"`:'';
+
+  return `<script${nonce}>${js}</script>`;
 };
 
-helper.embedJsUnsafeLoadThen = (js) => {
-  return helper.embedJsUnsafe(`cishard.load.then(()=>{${js}})`);
+helper.embedJsUnsafeLoadThen = (js) => ctx => {
+  return helper.embedJsUnsafe(`cishard.load.then(()=>{${js}})`)(ctx);
 };
 
 helper.safeJsonValue = _ => JSON.stringify(_);

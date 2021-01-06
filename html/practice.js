@@ -109,4 +109,4 @@ layout('Free Chess Articles', [
     url: e.env.domain,
     image: helper.assetUrl("images/Chessishard.png")
   })
-});
+}, ctx);

@@ -12,8 +12,10 @@ module.exports = (section, explanation) => ctx => {
   return layout('Free Chess Articles', [
     tags.div({ cls: ['home'] }, [
       tags.a({ href: `/practice#${section.id}` }, '- Back to Practice'),
-      tags.h1(section.name),
-      tags.div({id: 'md' }),
+      tags.section([
+        tags.h1(section.name),
+        tags.div({id: 'md' }),
+      ]),
       tags.a({ href: `/practice#${section.id}` }, '- Back to Practice'),
     ])  
   ], {
@@ -22,7 +24,7 @@ module.exports = (section, explanation) => ctx => {
       helper.embedJsUnsafeLoadThen(`
 ChessIsSection.boot(${helper.safeJsonValue({
 data
-})})`)
+})})`)(ctx)
     ]),
     chessmd: true,
     moreCss: helper.cssTag('section'),
@@ -32,7 +34,7 @@ data
       url: e.env.domain,
       image: helper.assetUrl("images/Chessishard.png")
     })
-  });
+  }, ctx);
 };
 
 module.exports.notFound = (section) => ctx => {
@@ -40,5 +42,5 @@ module.exports.notFound = (section) => ctx => {
       tags.p(`No explanation found for this section. Please check back later.`),
       tags.a({ href: '/practice' }, '- Back to Practice'),
     ], {
-    });
+    }, ctx);
 };

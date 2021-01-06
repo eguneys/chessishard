@@ -10,6 +10,7 @@ module.exports = ({
     filename: `${output}.js`,
     library
   },
+  devtool: 'source-map',
   entry: input,
   mode: 'development'
 }, {

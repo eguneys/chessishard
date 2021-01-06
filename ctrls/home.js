@@ -1,10 +1,14 @@
 let { articlem } = require('../model');
 let html = require('../html');
 
+let cis = require('./cis');
+
 function Home(env) {
 
-  this.index = (req, res, next) => {
-    res.send(html.home());
+  this.index = async (req, res, next) => {
+    let ctx = await cis.reqToCtx(req);
+
+    res.send(html.home()(ctx));
   };
 
 };

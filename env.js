@@ -11,6 +11,8 @@ module.exports = function(app) {
   this.domain = this.isProd ? 'https://chessishard.com'
     : 'http://localhost:3000';
 
+
+  this.assetDomain = this.domain;
   this.assetBaseUrl = this.isProd ? this.domain : '';
 
   this.awaitVariables = async function() {

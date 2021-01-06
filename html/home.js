@@ -5,7 +5,7 @@ let helper = require('./helper');
 let { layout } = require('./base');
 let tags = require('./tags');
 
-module.exports = () => layout('Free Chess Articles', [
+module.exports = () => ctx => layout('Free Chess Articles', [
   tags.div({ cls: ['home'] }, [
     tags.p('Read about technique and theory, solve exercises, track your progress'),
     tags.a({ href: '/practice', cls: 'button' }, `Dvoretsky's Endgame Manual`),
@@ -18,7 +18,7 @@ module.exports = () => layout('Free Chess Articles', [
     url: e.env.domain,
     image: helper.assetUrl("images/Chessishard.png")
   })
-});
+}, ctx);
 
 function article(article) {
   return tags.li([tags.a({ href: '/' + article.id }, [article.title]), 

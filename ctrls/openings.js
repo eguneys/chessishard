@@ -4,33 +4,41 @@ let openingsApi = require('../modules/openings');
 
 let { openingm } = require('../model');
 
+let cis = require('./cis');
+
 function Opening(env) {
 
   this.index = async (req, res, next) => {
     
+    let ctx = await cis.reqToCtx(req);
+
     let sections = await openingm.sectionsLight();
 
-    res.send(html.opening.list(sections));
+    res.send(html.openings.list(sections)(ctx));
 
   };
 
   this.section = async (req, res, next) => {
 
+    let ctx = await cis.reqToCtx(req);
+
     let { sectionId } = req.params;
     
     let section = await openingm.sectionById(sectionId);
 
-    res.send(html.opening.show(section));    
+    res.send(html.openings.show(section)(ctx));
   };
 
   this.sectionEdit = async (req, res, next) => {
+
+    let ctx = await cis.reqToCtx(req);
     
     let { sectionId } = req.params;
     
     let section = await openingm.sectionById(sectionId);
 
 
-    res.send(html.opening.editor(section));
+    res.send(html.openings.editor(section)(ctx));
   };
 
 

@@ -17,8 +17,11 @@ base.layout = function layout(title, body, {
   moreJs,
   openGraph,
   buttons = []
-}) {
+}, ctx) {
   // let fonts = tags.link('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap');
+
+  let metaCsp = (csp = helper.defaultCsp(ctx)) =>
+      tags.raw(`<meta http-equiv="Content-Security-Policy" content="${csp}">`);
 
   let favicons = [512, 128, 64, 32]
       .map(px => tags.raw(`
@@ -32,6 +35,7 @@ base.layout = function layout(title, body, {
       topComment,
       tags.head([
         viewport,
+        metaCsp(),
         tags.headTitle(`${title} • chessishard.com`),
         helper.cssTag('fonts'),
         helper.cssTag('site'),
@@ -53,7 +57,7 @@ base.layout = function layout(title, body, {
           cls: [
           ]
         }, body),
-        loadScripts(moreJs, chessmd)
+        loadScripts(moreJs, chessmd, ctx)
       ])
     ])
   ]);
@@ -78,14 +82,14 @@ function siteHeader(buttons) {
   ]);
 }
 
-function cishardJsObject() {
-  return helper.embedJsUnsafe(`cishard={load:new Promise(r=>{window.onload=r})}`);
+function cishardJsObject(ctx) {
+  return helper.embedJsUnsafe(`cishard={load:new Promise(r=>{window.onload=r})}`)(ctx);
 }
 
-function loadScripts(moreJs, chessmd) {
+function loadScripts(moreJs, chessmd, ctx) {
   return tags.frag([
     chessmd ? helper.chessmdTag() : '',
-    cishardJsObject(),
+    cishardJsObject(ctx),
     helper.jsModule("site"),
     moreJs
   ]);
