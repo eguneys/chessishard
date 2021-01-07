@@ -15,7 +15,7 @@ ls -l node_modules ui/node_modules ui/*/node_modules | grep /yarn/link/ || true
 mkdir -p public/compiled
 
 apps1="common"
-apps2="article editor review site publish moderate"
+apps2="editor site section openings"
 
 yarn install --non-interactive
 

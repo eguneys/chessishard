@@ -3,9 +3,14 @@ import ChessMd from 'chessm';
 
 export function app(opts) {
 
-  ChessMd(opts.$_, { md: opts.data });
+  const onFen = (fen) => {
+    let slug = fen;
+    window.open(`https://lichess.org/editor/${slug}`);
+  };
 
-  console.log(`[ChessMd@${ChessMd.version}]`);
+  ChessMd(opts.$_, { md: opts.data, events: { onFen } });
+
+  console.log(`[ChessM@${ChessMd.version}]`);
 
 }
 
