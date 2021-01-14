@@ -4,8 +4,14 @@ let helper = require('./helper');
 
 let bits = {};
 
-bits.info = () => {
+bits.info = (ctx) => {
+
   return tags.div([
+    ctx.user?
+      tags.p(`Hello ${ctx.user.id}`):
+      tags.p([`To auto select the opening `,
+              tags.a({ href: '/auth' }, [`Login with Lichess`])
+             ]),
     tags.p(`This is opening repertoire.`),
     tags.p(`Click on a link to see the lines.`),
     tags.p([
@@ -21,11 +27,11 @@ bits.section = (section) => tags.li([
   tags.a({ href: `/openings/${section.id}` },
          section.name),
   tags.span(' Challenge #'),
-  tags.a({ href: '#', cls: 'handle', 'data-handle': section.handle }, section.handle)
+  tags.a({ href: `/openings/select/${section.handle}`, cls: 'handle', 'data-handle': section.handle }, section.handle)
 ]);
 
 module.exports.list = (sections) => ctx => layout('Opening Repertoire', [
-  bits.info(),
+  bits.info(ctx),
   tags.ul({ cls: 'openings list' }, 
           sections.map(bits.section))
 ], {
@@ -47,7 +53,7 @@ module.exports.show = (section) => ctx => {
     tags.section([
       tags.h1([section.name,
                tags.span(' Challenge #'),
-               tags.a({ href: '#', cls: 'handle', 'data-handle': section.handle }, section.handle),
+               tags.a({ href: `/openings/select/${section.handle}`, cls: 'handle', 'data-handle': section.handle }, section.handle),
               ]),
       tags.div({ id: 'md' })
     ]),

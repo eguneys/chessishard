@@ -30,6 +30,8 @@ module.exports = function makeRouter(env) {
   router.get('/openings/:sectionId', opening.section);
   router.get('/openings/:sectionId/editor', opening.sectionEdit);
   router.post('/openings/:sectionId', upload.none(), opening.sectionEditPost);
+  router.post('/openings/select/:handle', opening.select);
+
 
   return router;
 };

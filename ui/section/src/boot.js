@@ -1,10 +1,9 @@
+import * as xhr from 'common/xhr';
+
 export default function(opts) {
   const $_ = document.getElementById("md"),
         { data } = opts;
   let section;
-
-  opts.$_ = $_;
-  section = window['ChessIsSection'].app(opts);
 
   let $handles = document.getElementsByClassName('handle');
 
@@ -14,11 +13,22 @@ export default function(opts) {
     $_.addEventListener('click', e => {
       e.preventDefault();
 
-      navigator.clipboard.writeText(handle).then(() => {
-        window.open('https://lichess.org/?user=openingsexercise#friend');
+      xhr.json($_.href, {
+        method: 'post'
+      }).then(_ => {
+        if (_.error) {
+          console.log(_.error);
+        } else {
+          navigator.clipboard.writeText(handle).then(() => {
+            window.open('https://lichess.org/?user=openingsexercise#friend');
+          });
+        }
       });
     });
     
   });
+
+  opts.$_ = $_;
+  section = window['ChessIsSection'].app(opts);
 
 }

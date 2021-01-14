@@ -2,7 +2,7 @@ let { layout } = require('./base');
 let tags = require('./tags');
 let helper = require('./helper');
 
-module.exports = () => {
+module.exports = () => ctx => {
 
   return layout('Edit New Article', [
     tags.div({ id: 'chessed' }),
@@ -12,11 +12,11 @@ module.exports = () => {
       helper.editorTag(),
       helper.embedJsUnsafeLoadThen(`
 ChessIsEditor.boot(${helper.safeJsonValue({
-})})`)
+})})`)(ctx)
     ]),
     moreCss: tags.frag([
       helper.cssTag('editor'),
       helper.cssTag('editor_main')
     ])
-  });
+  }, ctx);
 };

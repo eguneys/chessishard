@@ -1,10 +1,16 @@
 let { bookm } = require('../model');
 let html = require('../html');
 
+let cis = require('./cis');
+
+
 function Editor(env) {
 
   this.index = async function(req, res, next) {
-    res.send(html.editor());
+
+    let ctx = await cis.reqToCtx(req);
+
+    res.send(html.editor()(ctx));
   };
 
 }

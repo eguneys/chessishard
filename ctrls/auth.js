@@ -69,7 +69,7 @@ function Auth(env) {
     let sessionId = await saveAuthentication(user.username);
 
     req.session.sessionId = sessionId;
-    res.redirect('/practice');
+    res.redirect('/');
   };
 };
 

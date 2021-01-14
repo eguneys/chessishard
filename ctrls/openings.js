@@ -2,7 +2,7 @@ let html = require('../html');
 
 let openingsApi = require('../modules/openings');
 
-let { openingm } = require('../model');
+let { openingm, openingPlayerm } = require('../model');
 
 let cis = require('./cis');
 
@@ -76,6 +76,30 @@ function Opening(env) {
       res.send(_);
     }
 
+  };
+
+  this.select = async (req, res, next) => {
+
+    let { handle } = req.params;
+
+    let ctx = await cis.reqToCtx(req);
+
+
+    if (!ctx.user) {
+      res.send({ error: 'unauthroized' });
+      return;
+    }
+
+    let opening = await openingPlayerm.one(ctx.user.id);
+
+    if (!opening) {
+      await openingPlayerm.insert(ctx.user.id, handle);
+    } else {
+      await openingPlayerm.update(ctx.user.id, {
+        opening: handle
+      });
+    }
+    res.send({ok: true});
   };
 
 }

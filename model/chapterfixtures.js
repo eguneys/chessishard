@@ -257,12 +257,113 @@ The only move to draw is <jmoravec 1. Kd5 Kg2 2. h4>
 
 On <jmoravec3 jmoravec 1. Kf5> the black pawn queens with check; while on <jmoravec4 jmoravec 1. Ke5> White's queen will be lost after Qa1+
 ` },
-  { id: '1-11', sectionId: '1-11', name: `The Active King - Widening The Beachhead` },
-  { id: '1-12', sectionId: '1-12', name: `The King Routes - Zigzag` },
-  { id: '1-13', sectionId: '1-13', name: `The King Routes - Pendulum` },
-  { id: '1-14', sectionId: '1-14', name: `The King Routes - Shouldering` },
-  { id: '1-15', sectionId: '1-15', name: `Breakthrough` },
-  { id: '1-16', sectionId: '1-16', name: `The Outside Passed Pawn` },
+  { id: '1-11', sectionId: '1-11', name: `The Active King - Widening The Beachhead`, content: `
+<initial 8/8/2pk4/3p2p1/1p1P2P1/3K4/P1P5/8 b - - 0 1>
+
+=initial 0
+
+ <initial 1... Kc7 2. c3 Kb6> !
+ 
+ <initial 3. c4 Ka6> !
+
+ <initial 4. cxd5 cxd5 5. Kc2 Ka5> ⊙
+ <initial 6. Kb2 Ka4> ⊙
+ <initial 7. Kc2 Ka3 8. Kb1 b3 9. Ka1 Kb4 10. Kb2 bxa2>
+
+"widening the beachhead" means, trading off pawns, with the idea of clearing a path for the king.
+` },
+  { id: '1-12', sectionId: '1-12', name: `The King Routes - Zigzag`, content: `
+<initial 8/8/1p6/8/8/6P1/k1K5/8 w - - 0 1>
+
+=initial 0
+
+ <initial 1. Kc3> !
+ <initial 1... Ka3 2. Kc4 Ka4 3. g4 b5+ 4. Kd3> !
+
+The king returns to c2 while avoiding the pawn check with zigzag.
+
+ <initial 4... Ka3 5. g5 b4 6. g6 b3 7. g7 b2 8. Kc2> ! 
+ <initial 8... Ka2 g8=Q+>
+` },
+  { id: '1-13', sectionId: '1-13', name: `The King Routes - Pendulum`, content: `
+<initial 8/8/8/5p2/8/P7/4k1K1/8 w - - 0 1>
+
+White to play
+
+=initial 0
+
+<initial 1. Kg3 Ke3 2. Kg2 Ke2 3. Kg3> =
+` },
+  { id: '1-14', sectionId: '1-14', name: `The King Routes - Shouldering`, content: `
+<initial 8/1p6/8/8/8/8/1P6/K6k w - - 0 1>
+
+Shouldering is preventing the enemy king from arriving in time at an important part of the board.
+
+White to play
+
+=initial 0
+
+<initial 1. Kb1 Kg2 2. Kc2 Kf3 3. Kd3 Kf4 4. Kd4 Kf5 5. Kd5 Kf6 6. Kd6 Kf7> 
+
+ <initial 7. b4 Ke8 8. Kc7 b5 9. Kc6> +-
+` },
+  { id: '1-15', sectionId: '1-15', name: `Breakthrough`, content: `
+<iwhite 8/ppp5/8/PPP5/8/7k/8/7K w - - 0 1>
+
+ <iblack 8/ppp5/8/PPP5/8/7k/8/7K b - - 0 1>
+
+A breakthrough is when one or more pawns are sacrificed in order to create a passed pawn and promote it.
+
+=iwhite 0
+
+White to move wins by 
+
+ <iwhite 1. b6> ! 
+
+ <iwhite 1... cxb6> 
+ <iwhite 2. a6> ! 
+ <iwhite 2... bxa6> 
+ <iwhite 3. c6> 
+
+Black to move draws by only move:
+
+ <iblack 1... b6> !
+
+<maslov 6k1/6pp/5p2/4p3/p1p1P2P/2P2PP1/1K6/8 b - - 0 1>
+
+# Maslov - Glebov (USSR 1936)
+
+Black to move
+
+=maslov 0
+
+<maslov 1... h5> !
+
+<maslov 2. Ka3 g5 3. Kxa4 f5 4. Kb5>
+
+<maslov 4... f4 5. gxf4 gxh4>
+` },
+  { id: '1-16', sectionId: '1-16', name: `The Outside Passed Pawn`, content: `
+# Lombardy - Fischer (USA, New York 1960)
+
+<lombardy 8/pp4pp/4k3/3rPp2/1Pr4P/2B1KPP1/1P6/6R1 w - - 0 1>
+
+White to move
+
+=lombardy 0
+
+<lombardy 1. Re1> ??
+
+<lombardy 1... Rxc3+> !
+
+<lombardy 2. bxc3 Rxe5+ 3. Kd2 Rxe1 4. Kxe1 Kd5 5. Kd2 Kc4 6. h5 b6>
+
+Black gets an outside passed pawn.
+
+<lombardy 7. Kc2 g5 8. h6 f4 9. g4 a5 10. bxa5 bxa5 11. Kb2 a4 12. Ka3 Kxc3 13. Kxa4 Kd4 14. Kb4 Ke3> 
+
+White resigned.
+` },
   { id: '1-17', sectionId: '1-17', name: `The Rook's Pawns with an Extra Pawn on the Opposite Wing` },
 
   { id: '1-18', sectionId: '1-18', name: `The Protected Passed Pawn - Two Pawns to One` },

@@ -120,9 +120,9 @@ fixtures.exercises = [
   { id: '1-33', sectionId: '1-13', draw: true, fen: '8/K1p5/8/8/p7/P7/8/5k2 w - - 0 1' },
 
 
-  { id: '1-34', sectionId: '1-14', fen: '8/1p6/1P6/8/7K/8/8/1k6 w - - 0 1' },
-  { id: '1-35', sectionId: '1-14', fen: '8/5p2/1p6/1P2K2k/8/8/8/8 w - - 0 1' },
-  { id: '1-36', sectionId: '1-14', draw: true, fen: '2K5/5P2/kP6/8/8/7p/3r3P/8 w - - 0 1' },
+  { id: '1-34', sectionId: '1-14', draw: true, fen: '8/1p6/1P6/8/7K/8/8/1k6 w - - 0 1' },
+  { id: '1-35', sectionId: '1-14', draw: true, fen: '8/5p2/1p6/1P2K2k/8/8/8/8 w - - 0 1' }, 
+  { id: '1-36', sectionId: '1-14', draw: true, fen: '2K5/8/kP4P1/8/8/7p/3r3P/8 w - - 0 1' },
   { id: '1-37', sectionId: '1-14', fen: '2K5/k7/7p/8/8/8/6P1/8 w - - 0 1' },
 
 

@@ -10,6 +10,7 @@ const progress = mName('progress');
 const envName = mName('env');
 
 const opening = mName('opening');
+const openingPlayer = mName('openingplayer');
 
 const mInit = (m, coll) => m(store(coll));
 
@@ -20,5 +21,6 @@ module.exports = {
   progressm: mInit(require('./progressm'), progress),
   envm: mInit(require('./envm'), envName),
   openingm: mInit(require('./openingm'), opening),
+  openingPlayerm: mInit(require('./openingPlayerm'), openingPlayer),
   terminate: store.terminate
 };
