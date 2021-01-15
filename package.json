@@ -11,6 +11,7 @@
     "assets": "./ui/build prod && ./ui/build prod css",
     "prod": "NODE_ENV=production node ./bin/www",
     "preview": "yarn assets && yarn prod",
+    "deploy": "gcloud app deploy",
     "gcp-build": "yarn assets"
   },
   "dependencies": {

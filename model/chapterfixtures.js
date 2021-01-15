@@ -364,17 +364,142 @@ Black gets an outside passed pawn.
 
 White resigned.
 ` },
-  { id: '1-17', sectionId: '1-17', name: `The Rook's Pawns with an Extra Pawn on the Opposite Wing` },
+  { id: '1-17', sectionId: '1-17', name: `The Rook's Pawns with an Extra Pawn on the Opposite Wing`, content: `
+<initial 8/8/5k2/8/5K2/p4P2/P7/8 w - - 0 1>
+
+=initial 0
+
+The king will go after the rook's pawn, while the opponent must eliminate the pawn on the other wing, and rush the king over to the corner to stop the rook's pawn.
+
+This is Dvoretsky's method for evaluating such positions:
+
+1) If the rook's pawn of the stronger side has crossed the middle of the board it's always a win.
+
+2) We designate a "normal" position where:
+
+a) the rook's pawns which block one another, are separated by the middle of the board; and
+
+b) Black's king, aiming for the c8 square, can reach it without loss of time. Because the passed pawn has either traversed or stands upon h3-c8 diagonal.
+
+The "normal" position is drawn.
+
+3) For the kingside pawn, every square behind the h3-c8 diagonal is a reserve tempo for White. For example pawn at f4 means one reserve tempo; the pawn at e4 is two. If the king is not beside the passed pawn but in front of it, that's another reserve tempo.
+
+And every square the queen side pawns are behind the "normal" position is a reserve tempo for defending side. 
+
+White wins only if the relative number of tempi calculated by above method is in his favor.
+
+=initial 0
+
+White to move, black has 2 tempi, because the queenside pawns are two squares behind the "normal" position.
+White has 3 tempi, because f3 pawn is two squares behind h3-c8 diagonal and his king is in front of the pawn.
+So white wins by 3 to 2.
+
+
+One more thing about this rule, if the white's passed pawn is a rook's pawn and king is in front of it but the black king is boxing it.
+
+This situation is the same as if the king is next to his pawn.
+
+<situation2 8/8/8/p7/P4k1K/7P/8/8 b - - 0 1>
+
+=situation2 0
+
+Black to move
+
+This is a draw. <situation2 1... Kf5 Kh5>
+
+( <situation2normal situation2 2. Kg3 Kg5> is the "normal" position ),
+
+<situation2 2... Kf4> ! <situation2 3. h4>
+
+<situation2 3... Kf5 4. Kh6 Kf6 5. Kh7 Kf7 6. h5 Kf6> !.
+` },
 
   { id: '1-18', sectionId: '1-18', name: `The Protected Passed Pawn - Two Pawns to One` },
   { id: '1-19', sectionId: '1-19', name: `The Protected Passed Pawn - Multi-Pawn Endgames` },
 
-  { id: '1-20', sectionId: '1-20', name: `Undermining` },
-  { id: '1-21', sectionId: '1-21', name: `Two Connected Passed Pawns` },
+  { id: '1-20', sectionId: '1-20', name: `Undermining`, content: `
+Undermining is exchanging a pair or two of pawns to weaken the pawn chain.
 
 
-  { id: '1-22', sectionId: '1-22', name: `Stalemate - The Stalemate Refuge` },
-  { id: '1-23', sectionId: '1-23', name: `Stalemate - Semi-Stalemate` },
+<initial 8/p7/1p6/1P1P1k2/2P1p3/4K1p1/8/8 b - - 0 1>
+
+=initial 0
+
+Black to move
+
+<initial 1... Ke5> ! <initial 2. Ke2 Kd6 3. Ke3 Kc7 4. Ke2 Kb7 5. Ke3 a6 6. bxa6+ Kxa6 7. Ke2 Kb7>
+
+( <b5draw initial 7... b5> ?? <b5draw 8. d6 Kb6 9. cxb5> = )
+
+<initial 8. Ke3 Kc7 9. Ke2 Kd6 10. Ke3 b5 11. cxb5 Kxd5> -+ .
+` },
+  { id: '1-21', sectionId: '1-21', name: `Two Connected Passed Pawns`, content: `
+<initial 8/8/8/1p6/1Pp5/2K3Pk/7P/8 w - - 0 1>
+
+=initial 0
+
+White king is tied to the square of the protected passed pawn. But White can sometimes leave the square to help his pawns queen or checkmate the opponent.
+
+White's plan is:
+
+The farthest possible advance of pawns;
+
+The optimum placement of the pawns;
+
+Choosing the best time for the king's decisive advance.
+
+<initial 1. Kd4 Kg4 2. h4 Kh5 3. Ke3 Kg4 4. Ke4 Kh5 5. Kf4 Kh6 6. g4 Kg6 7. h5+ Kh6 8. Kf3 Kg5 9. Ke4 Kh6 10. Kf4>
+
+Triangulation
+
+<initial 10... Kh7 11. g5 Kg7 12. g6> !
+
+<initial 12... Kf6 13. Ke4 Kg7 14. Kf3 Kf6 15. Kf4 Kg7>
+
+Time for decisive advance!
+
+<initial 16. Kg5> ! <initial 16... c3 17. h6+ Kg8 18. Kf6 c2 19. h7+ Kh8 20. g7+> 
+(or <alt initial 20. Kf7 c1=Q 21. g7+> )
+
+<initial 20... Kxh7 21. Kf7 c1=Q 22. g8=Q+ Kh6 23. Qg6#>
+
+=initial 0
+
+White to move.
+` },
+
+
+  { id: '1-22', sectionId: '1-22', name: `Stalemate - The Stalemate Refuge`, content: `
+<initial 8/p7/2k1K3/2p5/PpP5/1P6/8/8 b - - 0 1>
+
+When there are only a very few pieces left on the board, stalemate becomes an important defensive resource.
+
+=initial 0
+
+Black to move
+
+<initial 1... Kb6> ! <initial 2. Kd5 a6> ! <initial 3. Kd6 Ka5> ! , and the pawn is untouchable, because of stalemate.
+
+<error initial 1... a6> ?? would be an error because <error 2. a5> !
+` },
+  { id: '1-23', sectionId: '1-23', name: `Stalemate - Semi-Stalemate`, content: `
+This is a situation when the king is stalemated, but there are still pawn moves left to make. So it's zugzwang instead.
+
+<initial 8/1k3p1p/3P2p1/8/3K2P1/8/8/8 w - - 0 1>
+
+=initial 0
+
+White to move
+
+<initial 1. g5> ! 
+
+(or <or initial 1. Ke5 Kc8 2. g5> ! )
+
+<initial 1... Kc6 2. Ke5 Kd7 3. Kd5> ! ( <kf6 initial 3. Kf6> ?? 
+ <kf6 3... Kxd6 4. Kxf7 Ke5> -+ )
+ <initial 3... Kd8 4. Kc6 Kc8 5. d7+ Kd8 6. Kd6> ⊙ +-.
+` },
 
   { id: '1-24', sectionId: '1-24', name: `Reserve Tempi - Exploiting Reserve Tempi` },
   { id: '1-25', sectionId: '1-25', name: `Reserve Tempi - The g and h Pawns vs the h Pawn` },
