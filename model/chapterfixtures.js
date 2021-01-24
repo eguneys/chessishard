@@ -501,7 +501,25 @@ White to move
  <initial 3... Kd8 4. Kc6 Kc8 5. d7+ Kd8 6. Kd6> ⊙ +-.
 ` },
 
-  { id: '1-24', sectionId: '1-24', name: `Reserve Tempi - Exploiting Reserve Tempi` },
+  { id: '1-24', sectionId: '1-24', name: `Reserve Tempi - Exploiting Reserve Tempi`, content: `
+1) Use every chance to accumulate reserve tempi and to deprive your opponent of his.
+
+2) Don't waste them except under necessity.
+
+<initial 8/6p1/5p1p/p7/Pk3PP1/3K3P/8/8 w - - 0 1>
+
+=initial 0
+
+White to move
+
+<initial 1. f5>
+
+<initial 1... Ka4 2. Kc4 Ka3 3. Kc3 a4 4. h4 Ka2 5. Kc2 a3>
+
+( <five initial 5... h5 6. gxh5 a3 7. h6 gxh6 8. h5> is zugzwang)
+
+<initial 6. h5> ⊙ <initial 6... Ka1 7. Kc1> =
+` },
   { id: '1-25', sectionId: '1-25', name: `Reserve Tempi - The g and h Pawns vs the h Pawn` },
   { id: '1-26', sectionId: '1-26', name: `Reserve Tempi - Both Sides Have Reserve Tempi` }
 ];

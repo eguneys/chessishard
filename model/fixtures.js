@@ -133,8 +133,8 @@ fixtures.exercises = [
 
   { id: '1-42', sectionId: '1-16', fen: '8/5p2/6k1/3p4/3p1P2/3P1K1P/8/8 w - - 0 1' },
 
-  { id: '1-43', sectionId: '1-17', fen: '8/5k2/p7/P6p/7P/5K2/8/8 b - - 0 1' },
-  { id: '1-44', sectionId: '1-17', fen: '8/p7/8/7p/P1k4P/8/1K6/8 w - - 0 1' },
+  { id: '1-43', sectionId: '1-17', draw: true, fen: '8/5k2/p7/P6p/7P/5K2/8/8 b - - 0 1' },
+  { id: '1-44', sectionId: '1-17', draw: true, fen: '8/p7/8/7p/P1k4P/8/1K6/8 w - - 0 1' },
   { id: '1-45', sectionId: '1-17', fen: '8/8/8/8/p1k1P3/P3K3/8/8 w - - 0 1' },
 
   { id: '1-46', sectionId: '1-19', draw: true, fen: '1k6/8/6pp/8/6P1/8/1K6/8 w - - 0 1' },
@@ -144,7 +144,7 @@ fixtures.exercises = [
   { id: '1-49', sectionId: '1-21', fen: '2k5/3p3r/K3pP1P/4R3/8/8/8/8 w - - 0 1' },
   { id: '1-50', sectionId: '1-21', fen: '8/1p4kP/5pP1/3p4/8/4P3/7K/8 w - - 0 1' },
 
-  { id: '1-51', sectionId: '1-22', draw: true, fen: '8/6p1/p5Pp/2p4P/P1p5/2P3k1/P3K3/8 b - - 0 1' },
+  { id: '1-51', sectionId: '1-22', fen: '8/6p1/p5Pp/2p4P/P1p5/2P3k1/P3K3/8 b - - 0 1' },
   { id: '1-52', sectionId: '1-22', draw: true, fen: '8/2p4p/1p3K2/8/P7/1P2k3/2P5/8 w - - 0 1' },
 
   { id: '1-53', sectionId: '1-24', fen: '5k2/7p/p1p3p1/P1P1Pp2/3p1PP1/7P/5K2/8 w - - 0 1' },
